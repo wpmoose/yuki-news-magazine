@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! defined( 'YUKI_NEWS_MAGAZINE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'YUKI_NEWS_MAGAZINE_VERSION', '1.0.0' );
+	define( 'YUKI_NEWS_MAGAZINE_VERSION', '1.0.1' );
 }
 
 if ( ! defined( 'YUKI_NEWS_MAGAZINE_PATH' ) ) {
@@ -70,8 +70,8 @@ if ( ! function_exists( 'yuki_news_magazine_featured_image_position' ) ) {
 		return 'below';
 	}
 }
-add_filter( 'yuki_post_featured_image_position_default_value', 'yuki_news_magazine_featured_image_position' );
-add_filter( 'yuki_page_featured_image_position_default_value', 'yuki_news_magazine_featured_image_position' );
+//add_filter( 'yuki_post_featured_image_position_default_value', 'yuki_news_magazine_featured_image_position' );
+//add_filter( 'yuki_page_featured_image_position_default_value', 'yuki_news_magazine_featured_image_position' );
 
 //
 // Header top row
@@ -754,3 +754,32 @@ if ( ! function_exists( 'yuki_news_magazine_homepage_design' ) ) {
 	}
 }
 add_filter( 'yuki_news_magazine_homepage_builder_default_value', 'yuki_news_magazine_homepage_design' );
+
+//
+// Particles effect
+//
+add_filter( 'yuki_header_primary_navbar_row_enable_particles_default_value', 'yuki_news_magazine_return_yes' );
+
+if ( ! function_exists( 'yuki_news_magazine_header_primary_navbar_particle_preset' ) ) {
+	function yuki_news_magazine_header_primary_navbar_particle_preset() {
+		return 'gather';
+	}
+}
+add_filter( 'yuki_header_primary_navbar_row_particle_preset_default_value', 'yuki_news_magazine_header_primary_navbar_particle_preset' );
+
+if ( ! function_exists( 'yuki_news_magazine_header_primary_navbar_particle_detect_on' ) ) {
+	function yuki_news_magazine_header_primary_navbar_particle_detect_on() {
+		return 'window';
+	}
+}
+add_filter( 'yuki_header_primary_navbar_row_particle_detect_on_default_value', 'yuki_news_magazine_header_primary_navbar_particle_detect_on' );
+
+if ( ! function_exists( 'yuki_news_magazine_header_primary_navbar_particle_color' ) ) {
+	function yuki_news_magazine_header_primary_navbar_particle_color() {
+		return array(
+			'particle' => '#ffffff',
+			'line'     => '#ffffff',
+		);
+	}
+}
+//add_filter( 'yuki_header_primary_navbar_row_particle_color_default_value', 'yuki_news_magazine_header_primary_navbar_particle_color' );
